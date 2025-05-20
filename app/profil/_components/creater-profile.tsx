@@ -13,8 +13,8 @@ function CreatorProfile() {
             </div>
             <h2 className="text-2xl font-bold ml-4">Profil Pembuat</h2>
           </div>
-          <p className="text-gray-600 mt-3 max-w-2xl mx-auto">
-            Mengenal lebih dekat sosok di balik pengembangan media pembelajaran BIOWEB
+          <p className="text-gray-600 mt-3 max-w-3xl mx-auto">
+            Mengenal lebih dekat seseorang di balik pengembangan media pembelajaran BIOWEB
           </p>
         </div>
 

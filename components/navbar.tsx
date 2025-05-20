@@ -10,7 +10,7 @@ const navItems = [
   { name: 'Profil', href: '/profil' },
   { name: 'Materi', href: '/materi' },
   { name: 'Kuis', href: '/kuis' },
-  { name: 'Game', href: '/game' },
+  { name: 'Permainan', href: '/games' },
   { name: 'Kontak', href: '/kontak' },
 ]
 

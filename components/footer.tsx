@@ -4,7 +4,7 @@ const footerLinks = [
   { label: 'Profil', href: '/profil' },
   { label: 'Materi', href: '/materi' },
   { label: 'Kuis', href: '/kuis' },
-  { label: 'Game', href: '/game' },
+  { label: 'Permainan', href: '/games' },
   { label: 'Kontak', href: '/kontak' },
 ]
 

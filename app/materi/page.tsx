@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import { ChevronLeft, ChevronRight, BookOpen } from 'lucide-react';
+import { cn } from '@/lib/utils';
 import { Breadcrumb } from '@/components/breadcrumb';
 import Materi1 from './_components/materi-1';
 import Materi2 from './_components/materi-2';
@@ -12,7 +13,6 @@ import Materi6 from './_components/materi-6';
 import Materi7 from './_components/materi-7';
 import Materi8 from './_components/materi-8';
 import Materi9 from './_components/materi-9';
-import { cn } from '@/lib/utils';
 import Materi10 from './_components/materi-10';
 import Materi11 from './_components/materi-11';
 import Materi12 from './_components/materi-12';
@@ -147,11 +147,25 @@ const MateriPage = () => {
                     return (
                       <button
                         key={item.id}
-                        className={`w-full text-left px-4 py-3 rounded-lg transition-colors flex items-center justify-between ${activeTab === item.id
-                          ? 'bg-teal-50 text-teal-800 font-medium'
-                          : 'hover:bg-gray-50'
-                          }`}
-                        onClick={() => setActiveTab(item.id!)}
+                        className={cn(
+                          'w-full text-left px-4 py-3 rounded-lg transition-colors flex items-center justify-between',
+                          activeTab === item.id ? 'bg-teal-50 text-teal-800 font-medium' : 'hover:bg-gray-50'
+                        )}
+                        onClick={() => {
+                          setActiveTab(item.id!);
+                          setTimeout(() => {
+                            const targetElement = document.querySelector(`.${item.id!}`);
+                            if (targetElement) {
+                              const yOffset = -100; // offset atas 100px (bisa positif/negatif)
+                              const y = targetElement.getBoundingClientRect().top + window.pageYOffset + yOffset;
+
+                              window.scrollTo({
+                                top: y,
+                                behavior: 'smooth',
+                              });
+                            }
+                          }, 100);
+                        }}
                       >
                         <span>{item.title}</span>
                         {activeTab === item.id && (
@@ -176,7 +190,7 @@ const MateriPage = () => {
 
             {/* Main Content */}
             <div className="lg:w-3/4">
-              <div className="bg-white rounded-xl p-6 shadow-sm">
+              <div className={cn('bg-white rounded-xl p-6 shadow-sm', activeTab)}>
                 {getActiveContent()}
               </div>
 

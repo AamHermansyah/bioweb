@@ -14,7 +14,7 @@ function Hero() {
             </h1>
 
             <p className="text-lg text-gray-600 mb-8 leading-relaxed">
-              Selamat datang di media pembelajaran Biologi Sistem Gerak! Mari kita pelajari bersama struktur dan fungsi sistem gerak manusia secara interaktif.
+              Selamat datang di media pembelajaran Biologi Sistem Gerak! Mari kita pelajari bersama.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4">
