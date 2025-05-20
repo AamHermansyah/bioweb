@@ -5,10 +5,10 @@ import React from 'react'
 function Video3() {
   return (
     <div className="space-y-4">
-      <Heading type="h1">Video Jenis Tulang</Heading>
+      <Heading type="h1">Video Jenis Rangka</Heading>
       <VideoPlayerCard
         videoUrl="https://drive.google.com/file/d/1sTznRPw8lTiv11GpVnLeKlEJMloi7L3Z/preview"
-        title="Video Jenis Tulang"
+        title="Video Jenis Rangka"
       />
     </div>
   )

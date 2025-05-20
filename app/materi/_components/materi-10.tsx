@@ -6,7 +6,7 @@ import React from 'react'
 function Materi10() {
   return (
     <div className="space-y-4">
-      <Heading type="h1">Otot</Heading>
+      <Heading type="h1">Sistem Gerak - Otot</Heading>
       <Paragraph>
         Tanpa otot, tubuh kita hanya seperti kerangka yang tersusun atas tulang saja. Oleh karena itu, hampir setengah berat tubuh kita berasal dari otot, dan ada lebih dari 640 otot menyusun tubuh kita. Bebeber- apa otot penyusun tubuh manusia seperti diperlihatkan pada Gambar 1. Adanya kontraksi otot, membuat tulang tubuh kita bisa bergerak. Karena itulah, otot disebut dengan alat gerak aktif. Dalam kehidupan sehari-hari, seringkali kita mendengar istilah daging. Sebenarnya, yang dimaksud daging adalah otot.
       </Paragraph>

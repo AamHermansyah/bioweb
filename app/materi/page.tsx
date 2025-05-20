@@ -37,10 +37,10 @@ const materiList = [
   { type: 'separator', title: 'Jenis Rangka' },
   { id: 'materi-3', title: 'Rangka Aksial' },
   { id: 'materi-4', title: 'Rangka Apendikuler' },
+  { id: 'video-3', title: 'Video Jenis Rangka' },
   { type: 'separator', title: 'Tulang Penyusun Rangka' },
   { id: 'materi-5', title: 'Bentuk Tulang' },
   { id: 'materi-6', title: 'Jenis Tulang' },
-  { id: 'video-3', title: 'Video Jenis Tulang' },
   { type: 'separator', title: 'Pembahasan lain' },
   { id: 'materi-7', title: 'Pembentukan Tulang' },
   { id: 'video-4', title: 'Video Osifikasi' },
@@ -79,10 +79,10 @@ const MateriPage = () => {
         return <Materi3 />;
       case 'materi-4':
         return <Materi4 />;
-      case 'materi-5':
-        return <Materi5 />;
       case 'video-3':
         return <Video3 />;
+      case 'materi-5':
+        return <Materi5 />;
       case 'materi-6':
         return <Materi6 />;
       case 'materi-7':
