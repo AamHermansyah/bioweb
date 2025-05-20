@@ -26,7 +26,7 @@ function Materi3() {
       <Paragraph>
         Sementara itu, tulang muka tersusun oleh tulang rahang atas (maksila), tulang rahang bawah (mandibula), tulang hidung (nasal), tulang air mata (lakrimal), tulang pipi (zigomatik) dan tulang langit-langit (palatum). Dari tulang muka ini akan terbentuk rongga mata, rongga hidung, dan wajah.
       </Paragraph>
-      <Heading type="h2">2. Tengkorak</Heading>
+      <Heading type="h2">2. Ruas Ruas Tulang Belakang</Heading>
       <Paragraph>
         Ruas-ruas tulang belakang (vertebrae) manusia terdiri atas 34 ruas. Setiap ruas tulang belakang ini memiliki kemung- kinan bergerak walaupun sedikit. Sehingga, adanya gerakan tersebut menjadikan tubuh kita tidak kaku.
       </Paragraph>

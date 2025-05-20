@@ -3,6 +3,7 @@ import { Poppins } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
+import { Toaster } from "sonner";
 
 const nunito = Poppins({
   subsets: ["latin"],
@@ -24,6 +25,7 @@ export default function RootLayout({
       <body
         className={`${nunito.className} antialiased`}
       >
+        <Toaster richColors />
         <Navbar />
         {children}
         <Footer />

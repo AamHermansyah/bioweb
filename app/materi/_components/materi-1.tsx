@@ -20,7 +20,7 @@ function Materi1() {
       {/* Gambar ilustrasi */}
       <IllustrationCard
         caption="Gambar 1. Orang yang sedang bermain basket"
-        imageUrl="/materi-1/image-1.png"
+        imageUrl="/materi-1/image-1.jpg"
         title="Orang bermain basket"
       />
 

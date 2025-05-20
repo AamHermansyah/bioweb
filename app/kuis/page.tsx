@@ -3,21 +3,10 @@
 import React, { useState } from 'react';
 import { BookOpen, Check, X, ChevronRight, AlertTriangle, Award, RefreshCw, Home } from 'lucide-react';
 import { Breadcrumb } from '@/components/breadcrumb';
-
-// Interface definitions
-interface QuizQuestion {
-  id: number;
-  question: string;
-  options: string[];
-  correctAnswer: number;
-  explanation: string;
-}
-
-interface AnsweredQuestion {
-  questionId: number;
-  isCorrect: boolean;
-  selectedAnswer: number;
-}
+import IllustrationCard from '@/components/illustration-card';
+import { AnsweredQuestion, QuizQuestion } from '@/types/quiz';
+import { quizQuestions } from '@/constants/quiz';
+import Link from 'next/link';
 
 const QuizPage: React.FC = () => {
   // State untuk melacak quiz state
@@ -27,130 +16,6 @@ const QuizPage: React.FC = () => {
   const [quizCompleted, setQuizCompleted] = useState<boolean>(false);
   const [score, setScore] = useState<number>(0);
   const [answeredQuestions, setAnsweredQuestions] = useState<AnsweredQuestion[]>([]);
-
-  // Dummy quiz questions
-  const quizQuestions: QuizQuestion[] = [
-    {
-      id: 1,
-      question: "Struktur tulang yang berfungsi sebagai tempat penyimpanan sumsum tulang merah adalah...",
-      options: [
-        "Periosteum",
-        "Tulang kompak",
-        "Tulang spons",
-        "Endosteum"
-      ],
-      correctAnswer: 2, // Index of correct answer (0-based)
-      explanation: "Tulang spons (jaringan tulang berongga) berfungsi sebagai tempat penyimpanan sumsum tulang merah yang berperan dalam pembentukan sel darah."
-    },
-    {
-      id: 2,
-      question: "Otot yang menyebabkan pergerakan antagonis dengan otot bisep pada lengan adalah...",
-      options: [
-        "Otot trisep",
-        "Otot deltoid",
-        "Otot pektoralis",
-        "Otot latissimus dorsi"
-      ],
-      correctAnswer: 0,
-      explanation: "Otot trisep bekerja secara antagonis dengan otot bisep. Ketika otot bisep berkontraksi (fleksi siku), otot trisep berelaksasi, dan sebaliknya ketika otot trisep berkontraksi (ekstensi siku), otot bisep berelaksasi."
-    },
-    {
-      id: 3,
-      question: "Sendi yang memungkinkan gerakan ke segala arah disebut...",
-      options: [
-        "Sendi engsel",
-        "Sendi pelana",
-        "Sendi putar",
-        "Sendi peluru"
-      ],
-      correctAnswer: 3,
-      explanation: "Sendi peluru (ball and socket joint) memungkinkan gerakan ke segala arah. Contohnya adalah sendi bahu dan panggul yang memungkinkan gerakan fleksi, ekstensi, abduksi, aduksi, dan rotasi."
-    },
-    {
-      id: 4,
-      question: "Tulang berikut yang merupakan tulang pendek adalah...",
-      options: [
-        "Tulang betis",
-        "Tulang pergelangan tangan",
-        "Tulang selangka",
-        "Tulang rusuk"
-      ],
-      correctAnswer: 1,
-      explanation: "Tulang pergelangan tangan (karpal) termasuk dalam kategori tulang pendek. Tulang pendek memiliki bentuk kubus dengan ukuran panjang, lebar, dan tinggi yang hampir sama."
-    },
-    {
-      id: 5,
-      question: "Fungsi utama rangka aksial pada tubuh manusia adalah...",
-      options: [
-        "Melindungi organ-organ vital seperti otak dan jantung",
-        "Memungkinkan pergerakan tubuh yang kompleks",
-        "Menyimpan mineral penting seperti kalsium",
-        "Membentuk ekstremitas atas dan bawah"
-      ],
-      correctAnswer: 0,
-      explanation: "Rangka aksial terdiri dari tulang tengkorak, tulang belakang, dan tulang rusuk yang berfungsi utama untuk melindungi organ-organ vital seperti otak, jantung, dan paru-paru."
-    },
-    {
-      id: 6,
-      question: "Proses pembentukan tulang pada janin yang awalnya berupa tulang rawan disebut...",
-      options: [
-        "Kalsifikasi",
-        "Osifikasi endokondral",
-        "Osifikasi intramembran",
-        "Mineralisasi"
-      ],
-      correctAnswer: 1,
-      explanation: "Osifikasi endokondral adalah proses pembentukan tulang yang diawali dengan terbentuknya model tulang rawan (kartilago) yang kemudian secara bertahap digantikan oleh jaringan tulang keras."
-    },
-    {
-      id: 7,
-      question: "Protein kontraktil utama yang berperan dalam kontraksi otot adalah...",
-      options: [
-        "Kolagen dan elastin",
-        "Aktin dan miosin",
-        "Hemoglobin dan mioglobin",
-        "Troponin dan tropomiosin"
-      ],
-      correctAnswer: 1,
-      explanation: "Aktin dan miosin adalah protein kontraktil utama yang berinteraksi satu sama lain selama kontraksi otot. Miosin membentuk filamen tebal dan aktin membentuk filamen tipis."
-    },
-    {
-      id: 8,
-      question: "Kelainan pada tulang belakang yang menyebabkan tulang belakang melengkung ke arah samping disebut...",
-      options: [
-        "Lordosis",
-        "Kifosis",
-        "Skoliosis",
-        "Osteoporosis"
-      ],
-      correctAnswer: 2,
-      explanation: "Skoliosis adalah kelainan pada tulang belakang yang ditandai dengan melengkungnya tulang belakang ke arah samping, membentuk huruf C atau S."
-    },
-    {
-      id: 9,
-      question: "Sumber energi utama untuk kontraksi otot adalah...",
-      options: [
-        "Glikogen",
-        "ATP (Adenosin Trifosfat)",
-        "Kreatin fosfat",
-        "Asam laktat"
-      ],
-      correctAnswer: 1,
-      explanation: "ATP (Adenosin Trifosfat) adalah sumber energi utama yang langsung digunakan untuk kontraksi otot. Energi dilepaskan ketika ATP dihidrolisis menjadi ADP (Adenosin Difosfat)."
-    },
-    {
-      id: 10,
-      question: "Gangguan yang terjadi akibat peradangan pada tendon disebut...",
-      options: [
-        "Artritis",
-        "Tendinitis",
-        "Osteoporosis",
-        "Dislokasi"
-      ],
-      correctAnswer: 1,
-      explanation: "Tendinitis adalah peradangan pada tendon, struktur jaringan ikat yang menghubungkan otot dengan tulang. Kondisi ini biasanya disebabkan oleh cedera atau penggunaan berlebihan."
-    }
-  ];
 
   // Menangani pemilihan jawaban
   const handleAnswerSelection = (index: number): void => {
@@ -245,13 +110,22 @@ const QuizPage: React.FC = () => {
 
               {/* Question */}
               <div className="mb-8">
-                <h2 className="text-xl md:text-2xl font-semibold mb-4">
+                <h2 className="text-xl md:text-2xl font-semibold">
                   <span className="text-teal-700 mr-2">{currentQuestionIndex + 1}.</span>
                   {currentQuestion.question}
                 </h2>
 
+                {currentQuestion.image && (
+                  <div className="mt-2">
+                    <IllustrationCard
+                      imageUrl={currentQuestion.image}
+                      className="object-contain"
+                    />
+                  </div>
+                )}
+
                 {/* Answer Options */}
-                <div className="space-y-3">
+                <div className="space-y-3 mt-4">
                   {currentQuestion.options.map((option, index) => (
                     <button
                       key={index}
@@ -459,20 +333,20 @@ const QuizPage: React.FC = () => {
                     <RefreshCw className="w-4 h-4 mr-2" />
                     Coba Lagi
                   </button>
-                  <a
-                    href="#"
+                  <Link
+                    href="/materi"
                     className="flex items-center justify-center px-6 py-2.5 bg-white border border-teal-600 text-teal-700 hover:bg-teal-50 font-medium rounded-lg transition-colors"
                   >
                     <BookOpen className="w-4 h-4 mr-2" />
                     Kembali ke Materi
-                  </a>
-                  <a
-                    href="#"
+                  </Link>
+                  <Link
+                    href="/"
                     className="flex items-center justify-center px-6 py-2.5 bg-white border border-gray-300 text-gray-700 hover:bg-gray-50 font-medium rounded-lg transition-colors"
                   >
                     <Home className="w-4 h-4 mr-2" />
                     Kembali ke Beranda
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>

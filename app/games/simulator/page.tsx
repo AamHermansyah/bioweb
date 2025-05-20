@@ -2,169 +2,10 @@
 
 import React, { useState, useEffect, useRef } from 'react';
 import { PlayIcon, RefreshCwIcon, ChevronRightIcon, XIcon, CheckIcon, InfoIcon, TrophyIcon, ClockIcon } from 'lucide-react';
-
-// Type definitions
-type MovementType = 'flexion' | 'extension' | 'abduction' | 'adduction' | 'rotation';
-type JointType = 'shoulder' | 'elbow' | 'wrist' | 'hip' | 'knee' | 'ankle' | 'spine';
-type MuscleGroup = 'biceps' | 'triceps' | 'deltoid' | 'pectoralis' | 'quadriceps' | 'hamstrings' | 'gluteus' | 'gastrocnemius' | 'trapezius' | 'abdominals';
-type DifficultyLevel = 'easy' | 'medium' | 'hard';
-
-interface MovementScenario {
-  id: number;
-  title: string;
-  description: string;
-  joint: JointType;
-  movementType: MovementType;
-  primaryMuscles: MuscleGroup[];
-  antagonistMuscles: MuscleGroup[];
-  difficulty: DifficultyLevel;
-  imageURL: string;
-  hint?: string;
-}
-
-interface GameState {
-  currentScenarioIndex: number;
-  score: number;
-  timeLeft: number;
-  lives: number;
-  level: DifficultyLevel;
-  isPlaying: boolean;
-  isGameOver: boolean;
-  answeredCorrectly: boolean[];
-  showFeedback: boolean;
-  feedbackType: 'correct' | 'incorrect' | null;
-}
-
-interface Answer {
-  selectedMovement: MovementType | null;
-  selectedMuscles: MuscleGroup[];
-}
+import { Answer, DifficultyLevel, GameState, MovementType, MuscleGroup } from '@/types/simulator';
+import { movementScenarios } from '@/constants/simulator';
 
 const MovementSimulatorGame: React.FC = () => {
-  // Movement data
-  const movementScenarios: MovementScenario[] = [
-    {
-      id: 1,
-      title: "Mengangkat Lengan",
-      description: "Gerakan lengan ke atas dari posisi samping tubuh",
-      joint: "shoulder",
-      movementType: "abduction",
-      primaryMuscles: ["deltoid"],
-      antagonistMuscles: ["pectoralis"],
-      difficulty: "easy",
-      imageURL: "/images/shoulder-abduction.png",
-      hint: "Gerakan menjauhi sumbu tengah tubuh"
-    },
-    {
-      id: 2,
-      title: "Membengkokkan Siku",
-      description: "Mengangkat lengan bawah ke arah bahu",
-      joint: "elbow",
-      movementType: "flexion",
-      primaryMuscles: ["biceps"],
-      antagonistMuscles: ["triceps"],
-      difficulty: "easy",
-      imageURL: "/images/elbow-flexion.png",
-      hint: "Gerakan mengurangi sudut sendi"
-    },
-    {
-      id: 3,
-      title: "Menendang Ke Depan",
-      description: "Menggerakkan kaki ke depan dari posisi berdiri",
-      joint: "hip",
-      movementType: "flexion",
-      primaryMuscles: ["quadriceps"],
-      antagonistMuscles: ["gluteus", "hamstrings"],
-      difficulty: "medium",
-      imageURL: "/images/hip-flexion.png",
-      hint: "Gerakan mengurangi sudut sendi"
-    },
-    {
-      id: 4,
-      title: "Memutar Kepala",
-      description: "Menggerakkan kepala ke kanan atau kiri",
-      joint: "spine",
-      movementType: "rotation",
-      primaryMuscles: ["trapezius"],
-      antagonistMuscles: [],
-      difficulty: "medium",
-      imageURL: "/images/neck-rotation.png",
-      hint: "Gerakan memutar di sekitar sumbu"
-    },
-    {
-      id: 5,
-      title: "Menurunkan Lengan",
-      description: "Gerakan menurunkan lengan dari posisi terangkat",
-      joint: "shoulder",
-      movementType: "adduction",
-      primaryMuscles: ["pectoralis"],
-      antagonistMuscles: ["deltoid"],
-      difficulty: "medium",
-      imageURL: "/images/shoulder-adduction.png",
-      hint: "Gerakan mendekati sumbu tengah tubuh"
-    },
-    {
-      id: 6,
-      title: "Meluruskan Lutut",
-      description: "Menggerakkan kaki bawah dari posisi bengkok",
-      joint: "knee",
-      movementType: "extension",
-      primaryMuscles: ["quadriceps"],
-      antagonistMuscles: ["hamstrings"],
-      difficulty: "easy",
-      imageURL: "/images/knee-extension.png",
-      hint: "Gerakan menambah sudut sendi"
-    },
-    {
-      id: 7,
-      title: "Meluruskan Siku",
-      description: "Menurunkan lengan bawah ke posisi lurus",
-      joint: "elbow",
-      movementType: "extension",
-      primaryMuscles: ["triceps"],
-      antagonistMuscles: ["biceps"],
-      difficulty: "easy",
-      imageURL: "/images/elbow-extension.png",
-      hint: "Gerakan menambah sudut sendi"
-    },
-    {
-      id: 8,
-      title: "Mengangkat Kaki Ke Samping",
-      description: "Gerakan kaki menjauhi sumbu tengah tubuh",
-      joint: "hip",
-      movementType: "abduction",
-      primaryMuscles: ["gluteus"],
-      antagonistMuscles: ["abdominals"],
-      difficulty: "hard",
-      imageURL: "/images/hip-abduction.png",
-      hint: "Gerakan menjauhi sumbu tengah tubuh"
-    },
-    {
-      id: 9,
-      title: "Membungkukkan Tubuh",
-      description: "Menundukkan tubuh bagian atas ke depan",
-      joint: "spine",
-      movementType: "flexion",
-      primaryMuscles: ["abdominals"],
-      antagonistMuscles: ["trapezius"],
-      difficulty: "medium",
-      imageURL: "/images/trunk-flexion.png",
-      hint: "Gerakan mengurangi sudut sendi"
-    },
-    {
-      id: 10,
-      title: "Mengangkat Tumit",
-      description: "Berdiri dengan ujung jari kaki",
-      joint: "ankle",
-      movementType: "flexion",
-      primaryMuscles: ["gastrocnemius"],
-      antagonistMuscles: [],
-      difficulty: "hard",
-      imageURL: "/images/ankle-flexion.png",
-      hint: "Gerakan mengurangi sudut sendi"
-    }
-  ];
-
   // Movement types for selection
   const movementTypes: MovementType[] = ['flexion', 'extension', 'abduction', 'adduction', 'rotation'];
 
@@ -657,7 +498,7 @@ const MovementSimulatorGame: React.FC = () => {
               </div>
 
               {/* Scenario */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              <div className="grid grid-cols-1 md:grid-cols-2 items-start gap-8">
                 {/* Image & Description Side */}
                 <div className="bg-gray-50 rounded-lg p-6">
                   <h2 className="text-xl font-bold mb-2">{currentScenario.title}</h2>

@@ -1,53 +1,11 @@
 'use client'
 
 import React from 'react';
-import { Gamepad2, Bone, Dumbbell, Trophy, Clock, ArrowRight, Star } from 'lucide-react';
+import { Clock, ArrowRight, Star } from 'lucide-react';
 import Link from 'next/link';
+import { games } from '@/constants/games';
 
 const GameHomePage: React.FC = () => {
-  // Game data
-  const games = [
-    {
-      id: 'movement-simulator',
-      title: 'Simulator Gerakan',
-      description: 'Identifikasi jenis gerakan dan otot yang digunakan dalam berbagai aktivitas tubuh.',
-      icon: <Gamepad2 className="w-10 h-10 text-blue-200" />,
-      difficulty: 'Sedang',
-      timeEstimate: '3-5 menit',
-      skills: ['Pengenalan Gerakan', 'Identifikasi Otot', 'Analisis Fungsi'],
-      highlights: 'Pelajari bagaimana otot dan sendi bekerja sama untuk menciptakan gerakan tubuh.',
-      path: '/games/simulator',
-      color: 'from-blue-500 to-teal-600',
-      bgClass: 'bg-gradient-to-br from-blue-50 to-teal-50'
-    },
-    {
-      id: 'muscle-matching',
-      title: 'Mencocokkan Otot',
-      description: 'Cocokkan setiap jenis otot dengan fungsinya yang tepat dalam sistem gerak manusia.',
-      icon: <Dumbbell className="w-10 h-10 text-emerald-200" />,
-      difficulty: 'Mudah',
-      timeEstimate: '2-4 menit',
-      skills: ['Fungsi Otot', 'Jenis Otot', 'Anatomi Pada Otot'],
-      highlights: 'Kenali berbagai jenis otot dan bagaimana fungsi mereka mendukung gerakan tubuh.',
-      path: '/games/pasangan-otot',
-      color: 'from-emerald-500 to-green-600',
-      bgClass: 'bg-gradient-to-br from-emerald-50 to-green-50'
-    },
-    {
-      id: 'bone-arrangement',
-      title: 'Menyusun Tulang',
-      description: 'Susun tulang pada posisi yang tepat untuk membentuk kerangka manusia yang lengkap.',
-      icon: <Bone className="w-10 h-10 text-amber-200" />,
-      difficulty: 'Sulit',
-      timeEstimate: '3-6 menit',
-      skills: ['Anatomi Tulang', 'Struktur Kerangka', 'Posisi Tulang'],
-      highlights: 'Pelajari susunan tulang yang membentuk kerangka manusia dan posisinya yang tepat.',
-      path: '/games/susun-tulang',
-      color: 'from-amber-500 to-orange-600',
-      bgClass: 'bg-gradient-to-br from-amber-50 to-orange-50'
-    }
-  ];
-
   return (
     <div className="min-h-screen bg-gradient-to-b from-green-50 to-teal-50 text-gray-800 font-sans">
       <div className="relative bg-gradient-to-b from-white to-teal-50 overflow-hidden">
@@ -63,10 +21,6 @@ const GameHomePage: React.FC = () => {
 
               {/* Feature Highlights */}
               <div className="flex flex-wrap justify-center lg:justify-start gap-3 pt-6">
-                <div className="flex items-center gap-2 px-3 py-1.5 bg-white border rounded-full shadow-sm">
-                  <Trophy className="w-4 h-4 text-yellow-500" />
-                  <span className="text-sm font-medium text-gray-800">Skor Tertinggi</span>
-                </div>
                 <div className="flex items-center gap-2 px-3 py-1.5 bg-white border rounded-full shadow-sm">
                   <Clock className="w-4 h-4 text-blue-500" />
                   <span className="text-sm font-medium text-gray-800">Tantangan Waktu</span>
@@ -158,29 +112,6 @@ const GameHomePage: React.FC = () => {
         </div>
       </section>
 
-      {/* General Info */}
-      <section className="py-12 bg-white">
-        <div className="container mx-auto max-w-6xl px-4">
-          <div className="max-w-4xl mx-auto">
-            <h2 className="text-2xl font-bold mb-6 text-center">Tentang Game Edukatif Sistem Gerak</h2>
-            <div className="text-gray-700 space-y-4">
-              <p>
-                Koleksi game interaktif ini dirancang untuk membantu Anda memahami sistem gerak manusia dengan cara yang menyenangkan dan menantang.
-                Setiap game berfokus pada aspek yang berbeda dari sistem gerak manusia, mulai dari pengenalan tulang, otot, hingga gerakan tubuh yang kompleks.
-              </p>
-              <p>
-                Semua game dilengkapi dengan sistem skor dan tingkat kesulitan yang bervariasi, sehingga cocok untuk berbagai tingkat pemahaman.
-                Anda dapat memulai dari level yang sesuai dengan pengetahuan Anda dan secara bertahap meningkatkan tantangan.
-              </p>
-              <p>
-                Pelajari sistem gerak sambil bermain dan uji pemahaman Anda tentang bagaimana tulang, otot, dan sendi bekerja sama untuk menghasilkan
-                gerakan tubuh manusia yang kompleks dan terkoordinasi.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* How to Play Tips */}
       <section className="py-16 bg-gradient-to-br from-teal-50 to-green-50">
         <div className="container mx-auto max-w-6xl px-4">
@@ -229,19 +160,19 @@ const GameHomePage: React.FC = () => {
           </p>
 
           <div className="flex flex-wrap justify-center gap-4">
-            <Link href="/games/movement-simulator">
+            <Link href="/games/simulator">
               <div className="px-6 py-3 bg-teal-600 hover:bg-teal-700 text-white font-medium rounded-lg transition-colors">
                 Simulator Gerakan
               </div>
             </Link>
-            <Link href="/games/muscle-matching">
+            <Link href="/games/pasangkan-otot">
               <div className="px-6 py-3 bg-emerald-600 hover:bg-emerald-700 text-white font-medium rounded-lg transition-colors">
                 Mencocokkan Otot
               </div>
             </Link>
-            <Link href="/games/bone-arrangement">
+            <Link href="/games/cari-tulang">
               <div className="px-6 py-3 bg-amber-600 hover:bg-amber-700 text-white font-medium rounded-lg transition-colors">
-                Menyusun Tulang
+                Cocokan Tulang
               </div>
             </Link>
           </div>

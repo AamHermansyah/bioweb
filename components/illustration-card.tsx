@@ -3,7 +3,7 @@ import { cn } from "@/lib/utils";
 interface IllustrationCardProps {
   title?: string;
   subtitle?: string;
-  caption: string;
+  caption?: string;
   imageUrl?: string;
   className?: string;
 }
@@ -30,12 +30,12 @@ const IllustrationCard: React.FC<IllustrationCardProps> = ({
         {imageUrl && (
           <img
             src={imageUrl}
-            alt="Gambar"
+            alt={title || 'Gambar'}
             className={cn('absolute w-full h-full object-cover', className)}
           />
         )}
       </div>
-      <p className="text-sm text-gray-500 text-center">{caption}</p>
+      {caption && <p className="text-sm text-gray-500 text-center">{caption}</p>}
     </div>
   );
 };

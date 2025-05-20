@@ -5,8 +5,8 @@ import { Play } from 'lucide-react';
 
 interface VideoPlayerCardProps {
   title: string;
-  description: string;
-  duration: string;
+  description?: string;
+  duration?: string;
   videoUrl: string; // Harus berupa URL embed (misalnya dari Google Drive atau YouTube embed)
 }
 
@@ -40,15 +40,13 @@ const VideoPlayerCard: React.FC<VideoPlayerCardProps> = ({
             ></iframe>
           ) : (
             <div className="absolute bottom-6 left-6 text-white bg-black/50 px-4 py-2 rounded-lg text-sm">
-              {title} ({duration})
+              {title} {duration ? `(${duration})` : ''}
             </div>
           )}
         </div>
       </div>
 
-      <p className="text-sm text-gray-500 mt-2">
-        {description}
-      </p>
+      {description && <p className="text-sm text-gray-500 mt-2">{description}</p>}
     </div>
   );
 };

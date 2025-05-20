@@ -4,7 +4,7 @@ import React from 'react'
 const learningGoals = [
   'Peserta didik mampu menjelaskan organ-organ sistem gerak pada manusia beserta fungsinya melalui kajian literatur dengan tepat.',
   'Peserta didik mampu menjelaskan proses pembentukan tulang (osifikasi) melalui kajian literatur dengan tepat.',
-  'Peserta didik mampu menjelaskan hubungan antar tulang (persendian) melalui kajian litetarur dengan tepat.',
+  'Peserta didik mampu menjelaskan hubungan antar tulang (persendian) melalui kajian literatur dengan tepat.',
   'Peserta didik mampu menjelaskan mecam-macam gerak pada manusia melalui kajian literatur.',
   'Peserta didik mampu menjelaskan struktur penyusun otot pada sistem gerak manusia melalui kajian literatur.',
   'Peserta didik mampu menjelaskan macam-macam otot sistem gerak pada manusia beserta mekanisme Gerak otot melalui kajian literatur dengan tepat.',
@@ -26,7 +26,7 @@ function LearningObjectives() {
                 <h2 className="text-2xl font-bold ml-4">Capaian Pembelajaran</h2>
               </div>
               <p className="text-gray-600 leading-relaxed mt-3">
-                Pada Fase F, peserta didik diharapkan mampu memahami keterkaitan antara struktur organ pada sistem gerak dengan fungsinya dalam merespons stimulus internal maupun eksternal.
+                Pada Fase F, peserta didik mampu memahami keterkaitan struktur organ pada sistem organ dengan fungsinya dalam merespons stimulus internal dan eksternal.
               </p>
             </div>
           </div>

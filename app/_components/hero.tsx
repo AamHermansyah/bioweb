@@ -1,5 +1,6 @@
 import { ChevronRight } from 'lucide-react'
 import Image from 'next/image'
+import Link from 'next/link'
 import React from 'react'
 
 function Hero() {
@@ -14,18 +15,22 @@ function Hero() {
             </h1>
 
             <p className="text-lg text-gray-600 mb-8 leading-relaxed">
-              Selamat datang di media pembelajaran Biologi Sistem Gerak! Mari kita pelajari bersama.
+              Selamat datang di media pembelajaran Biologi materi Sistem Gerak! Mari kita pelajari bersama.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4">
-              <button className="w-full sm:w-auto bg-teal-600 hover:bg-teal-700 text-white px-6 py-3 rounded-lg font-medium flex items-center transition-colors">
-                Mulai Belajar
-                <ChevronRight className="ml-2 w-5 h-5" />
-              </button>
+              <Link href="/materi">
+                <button className="w-full sm:w-auto bg-teal-600 hover:bg-teal-700 text-white px-6 py-3 rounded-lg font-medium flex items-center transition-colors cursor-pointer">
+                  Mulai Belajar
+                  <ChevronRight className="ml-2 w-5 h-5" />
+                </button>
+              </Link>
 
-              <button className="w-full sm:w-auto border border-teal-600 text-teal-600 hover:bg-teal-50 px-6 py-3 rounded-lg font-medium flex items-center transition-colors">
-                Tentang Kami
-              </button>
+              <Link href="/profil">
+                <button className="w-full sm:w-auto border border-teal-600 text-teal-600 hover:bg-teal-50 px-6 py-3 rounded-lg font-medium flex items-center transition-colors cursor-pointer">
+                  Tentang Kami
+                </button>
+              </Link>
             </div>
           </div>
 

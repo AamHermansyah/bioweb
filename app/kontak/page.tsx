@@ -1,8 +1,9 @@
 'use client'
 
 import React, { useState } from 'react';
-import { Send, Mail, Phone, MapPin, User, MessageSquare, Check } from 'lucide-react';
+import { Send, Mail, Phone, MapPin, User, Check } from 'lucide-react';
 import { Breadcrumb } from '@/components/breadcrumb';
+import { emailAdmin, generateEmailBody } from '@/lib/utils';
 
 const ContactPage = () => {
   const [formValues, setFormValues] = useState({
@@ -24,20 +25,37 @@ const ContactPage = () => {
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    // Simulasi pengiriman formulir
+
+    const { name, email, subject, message } = formValues;
+
+    // Template email
+    const body = generateEmailBody(name, email, subject, message);
+
+    // Buat mailto link
+    const mailtoLink = `https://mail.google.com/mail/?view=cm&fs=1&to=${emailAdmin}&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+    // Arahkan ke Gmail
+    window.open(mailtoLink, '_blank');
+
+    // Reset form (jika perlu)
+    setFormValues({
+      name: '',
+      email: '',
+      subject: '',
+      message: '',
+    });
+
+    setIsSubmitted(true);
+    // Reset form setelah menampilkan sukses
     setTimeout(() => {
-      setIsSubmitted(true);
-      // Reset form setelah menampilkan sukses
-      setTimeout(() => {
-        setIsSubmitted(false);
-        setFormValues({
-          name: '',
-          email: '',
-          subject: '',
-          message: '',
-        });
-      }, 5000);
-    }, 1000);
+      setIsSubmitted(false);
+      setFormValues({
+        name: '',
+        email: '',
+        subject: '',
+        message: '',
+      });
+    }, 5000);
   };
 
   return (
@@ -50,8 +68,7 @@ const ContactPage = () => {
         <div className="container mx-auto max-w-6xl px-4">
           <h1 className="text-3xl md:text-4xl font-bold text-center mb-4">Kontak Kami</h1>
           <p className="text-gray-600 text-center max-w-2xl mx-auto">
-            Jika Anda memiliki pertanyaan, saran, atau ingin berkolaborasi,
-            jangan ragu untuk menghubungi tim pengembang BIOWEB.
+            Kami sangat menghargai setiap masukan dari Anda. Jika ada pertanyaan, saran membangun, atau Anda tertarik untuk berkolaborasi dalam pengembangan BIOWEB, silakan hubungi kami.
           </p>
         </div>
       </header>
@@ -80,7 +97,7 @@ const ContactPage = () => {
                       </div>
                       <div className="ml-4">
                         <h3 className="text-sm font-semibold text-gray-500 mb-1">Email</h3>
-                        <p className="text-gray-800">elisanur@upi.edu</p>
+                        <p className="text-gray-800">222154088@student.unsil.ac.id</p>
                       </div>
                     </div>
 
@@ -90,7 +107,7 @@ const ContactPage = () => {
                       </div>
                       <div className="ml-4">
                         <h3 className="text-sm font-semibold text-gray-500 mb-1">Telepon</h3>
-                        <p className="text-gray-800">+62 812-3456-7890</p>
+                        <p className="text-gray-800">+62 812-8438-1915</p>
                       </div>
                     </div>
 
@@ -103,7 +120,7 @@ const ContactPage = () => {
                         <p className="text-gray-800">
                           Fakultas Keguruan dan Ilmu Pendidikan<br />
                           Universitas Pendidikan Indonesia<br />
-                          Jl. Dr. Setiabudi No.229, Bandung
+                          Jalan Siliwangi No. 24, Kahuripan, Kota Tasikmalaya 46115
                         </p>
                       </div>
                     </div>
@@ -116,9 +133,9 @@ const ContactPage = () => {
                         <User className="w-6 h-6 text-teal-700" />
                       </div>
                       <div className="ml-4">
-                        <h4 className="font-medium">Elisa Nur Amanah</h4>
+                        <h4 className="font-medium">Elisa Nuramanah</h4>
                         <p className="text-sm text-gray-600">Mahasiswa Pendidikan Biologi</p>
-                        <p className="text-sm text-gray-600">NIM: B_088</p>
+                        <p className="text-sm text-gray-600">NIM: 222154088</p>
                       </div>
                     </div>
                   </div>
@@ -158,7 +175,7 @@ const ContactPage = () => {
                             name="name"
                             value={formValues.name}
                             onChange={handleChange}
-                            className="pl-10 w-full py-3 border-gray-300 rounded-lg focus:ring-teal-500 focus:border-teal-500"
+                            className="pl-10 pr-4 w-full py-3 border border-gray-300 rounded-lg focus:ring-teal-500 focus:border-teal-500"
                             placeholder="Masukkan nama lengkap"
                             required
                           />
@@ -177,7 +194,7 @@ const ContactPage = () => {
                             name="email"
                             value={formValues.email}
                             onChange={handleChange}
-                            className="pl-10 w-full py-3 border-gray-300 rounded-lg focus:ring-teal-500 focus:border-teal-500"
+                            className="pl-10 pr-4 w-full py-3 border border-gray-300 rounded-lg focus:ring-teal-500 focus:border-teal-500"
                             placeholder="email@contoh.com"
                             required
                           />
@@ -193,7 +210,7 @@ const ContactPage = () => {
                         name="subject"
                         value={formValues.subject}
                         onChange={handleChange}
-                        className="w-full py-3 border-gray-300 rounded-lg focus:ring-teal-500 focus:border-teal-500"
+                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-teal-500 focus:border-teal-500"
                         placeholder="Subjek pesan"
                         required
                       />
@@ -201,21 +218,16 @@ const ContactPage = () => {
 
                     <div>
                       <label htmlFor="message" className="block text-gray-700 font-medium mb-2">Pesan</label>
-                      <div className="relative">
-                        <div className="absolute top-3 left-3 pointer-events-none">
-                          <MessageSquare className="h-5 w-5 text-gray-400" />
-                        </div>
-                        <textarea
-                          id="message"
-                          name="message"
-                          value={formValues.message}
-                          onChange={handleChange}
-                          rows={5}
-                          className="pl-10 w-full border-gray-300 rounded-lg focus:ring-teal-500 focus:border-teal-500"
-                          placeholder="Tuliskan pesan, pertanyaan, atau umpan balik Anda di sini..."
-                          required
-                        ></textarea>
-                      </div>
+                      <textarea
+                        id="message"
+                        name="message"
+                        value={formValues.message}
+                        onChange={handleChange}
+                        rows={5}
+                        className="px-4 py-3 w-full border border-gray-300 rounded-lg focus:ring-teal-500 focus:border-teal-500"
+                        placeholder="Tuliskan pesan, pertanyaan, atau umpan balik Anda di sini..."
+                        required
+                      ></textarea>
                     </div>
 
                     <div className="pt-2">

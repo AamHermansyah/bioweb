@@ -3,32 +3,9 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Trophy, Clock, RotateCcw, Home, ArrowRight, CheckCircle, XCircle } from 'lucide-react';
 import Link from 'next/link';
-
-// Type definitions
-type DifficultyLevel = 'easy' | 'medium' | 'hard';
-
-interface GameState {
-  score: number;
-  timeLeft: number;
-  level: DifficultyLevel;
-  isPlaying: boolean;
-  isGameOver: boolean;
-}
-
-interface MuscleItem {
-  id: string;
-  name: string;
-  function: string;
-  type: string;
-  image: string;
-}
-
-interface MatchPair {
-  id: string;
-  muscleId: string;
-  functionId: string;
-  isMatched: boolean;
-}
+import { toast } from 'sonner';
+import { DifficultyLevel, GameState, MatchPair, MuscleItem } from '@/types/pasangkan-otot';
+import { muscleDummyData } from '@/constants/pasangkan-otot';
 
 const MuscleMatchingGame: React.FC = () => {
   // Game state
@@ -53,16 +30,6 @@ const MuscleMatchingGame: React.FC = () => {
 
   // Game instructions state
   const [showInstructions, setShowInstructions] = useState<boolean>(true);
-
-  // Dummy data for muscle matching game
-  const muscleDummyData: MuscleItem[] = [
-    { id: 'biceps', name: 'Otot Bisep', function: 'Membengkokkan lengan pada siku', type: 'Otot Rangka', image: '/images/biceps.png' },
-    { id: 'triceps', name: 'Otot Trisep', function: 'Meluruskan lengan pada siku', type: 'Otot Rangka', image: '/images/triceps.png' },
-    { id: 'quadriceps', name: 'Otot Quadrisep', function: 'Meluruskan kaki pada lutut dan membengkokkan paha pada pinggul', type: 'Otot Rangka', image: '/images/quadriceps.png' },
-    { id: 'cardiac', name: 'Otot Jantung', function: 'Memompa darah ke seluruh tubuh', type: 'Otot Jantung', image: '/images/cardiac.png' },
-    { id: 'smooth', name: 'Otot Polos', function: 'Mengontrol gerakan tidak sadar pada organ dalam', type: 'Otot Polos', image: '/images/smooth.png' },
-    { id: 'abdominal', name: 'Otot Perut', function: 'Membengkokkan tubuh dan melindungi organ dalam', type: 'Otot Rangka', image: '/images/abdominal.png' },
-  ];
 
   // Initialize game
   useEffect(() => {
@@ -272,6 +239,9 @@ const MuscleMatchingGame: React.FC = () => {
         }));
       } else {
         // Incorrect match - penalty
+        toast.error('Kamu memilih pasangan yang salah, coba lagi!', {
+          duration: 1000
+        });
         setGameState(prevState => ({
           ...prevState,
           score: Math.max(0, prevState.score - 5)

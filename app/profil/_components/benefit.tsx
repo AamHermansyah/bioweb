@@ -1,4 +1,3 @@
-import { Clock } from 'lucide-react'
 import React from 'react'
 
 const movementSystemBenefits = [
@@ -35,9 +34,8 @@ function Benefit() {
       <div className="container mx-auto max-w-6xl px-4">
         <div className="text-center mb-12">
           <h2 className="text-2xl font-bold">Manfaat Mempelajari Sistem Gerak</h2>
-          <p className="text-gray-600 mt-3 max-w-2xl mx-auto">
-            Memahami sistem gerak memberikan berbagai manfaat penting dalam kehidupan sehari-hari
-            dan pemahaman tentang kesehatan diri.
+          <p className="text-gray-600 mt-3 max-w-3xl mx-auto">
+            Mungkin kita sering berpikir, &quot;Ah, sistem gerak itu kan cuma tulang dan otot.&quot; Tapi, tahukah anda, ada banyak sekali rahasia dan manfaat yang tersembunyi di balik kemampuan tubuh kita untuk bergerak!
           </p>
         </div>
 
@@ -54,23 +52,6 @@ function Benefit() {
               <p className="text-gray-600">{benefit.desc}</p>
             </div>
           ))}
-        </div>
-
-
-        <div className="mt-12 p-6 bg-white rounded-xl border border-green-100 shadow-sm">
-          <div className="flex items-start">
-            <div className="p-3 bg-amber-100 rounded-lg">
-              <Clock className="w-6 h-6 text-amber-600" />
-            </div>
-            <div className="ml-4">
-              <h4 className="text-lg font-semibold mb-2">Waktu Pembelajaran</h4>
-              <p className="text-gray-700">
-                Diperkirakan waktu yang dibutuhkan untuk mempelajari seluruh materi sistem gerak
-                pada media pembelajaran ini adalah sekitar 4-6 jam, tergantung pada kecepatan dan
-                gaya belajar masing-masing siswa.
-              </p>
-            </div>
-          </div>
         </div>
       </div>
     </section>

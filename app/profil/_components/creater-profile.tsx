@@ -13,8 +13,8 @@ function CreatorProfile() {
             </div>
             <h2 className="text-2xl font-bold ml-4">Profil Pembuat</h2>
           </div>
-          <p className="text-gray-600 mt-3 max-w-3xl mx-auto">
-            Mengenal lebih dekat seseorang di balik pengembangan media pembelajaran BIOWEB
+          <p className="text-gray-600 mt-3 max-w-4xl mx-auto">
+            Mari berkenalan lebih dekat dengan Elisa Nuramanah, orang inspiratif dibalik pengembangan media pembelajaran BIOWEB ini. Dengan semangat dan dedikasinya, ia berusaha menghadirkan pengalaman belajar biologi yang lebih menarik dan mudah dipahami untuk kita semua.
           </p>
         </div>
 
@@ -37,7 +37,7 @@ function CreatorProfile() {
               </div>
 
               <div className="md:col-span-8">
-                <h3 className="text-2xl font-bold mb-1">Elisa Nur Amanah</h3>
+                <h3 className="text-2xl font-bold mb-1">Elisa Nuramanah</h3>
                 <p className="text-teal-700 font-medium mb-4">Pengembang Media Pembelajaran BIOWEB</p>
 
                 <div className="space-y-4">
@@ -74,10 +74,7 @@ function CreatorProfile() {
                 <div>
                   <h4 className="text-sm font-semibold text-gray-500 mb-2">Latar Belakang</h4>
                   <p className="text-gray-700">
-                    Saya adalah mahasiswa Pendidikan Biologi yang tertarik pada pengembangan media
-                    pembelajaran interaktif. BIOWEB merupakan proyek yang saya kembangkan untuk
-                    memudahkan siswa dalam memahami konsep sistem gerak manusia dengan pendekatan
-                    yang lebih menarik dan interaktif.
+                    Saya adalah Elisa, seorang mahasiswa Pendidikan Biologi yang percaya bahwa belajar haruslah menjadi petualangan yang menyenangkan, bukan sekadar hafalan. Dari situlah muncul ide BIOWEB, sebuah media yang saya rancang khusus untuk mengubah cara kita memahami sistem gerak manusia. Saya sangat berharap, melalui BIOWEB, Anda bisa menemukan cara baru yang lebih seru dan interaktif untuk menjelajahi keajaiban tubuh kita.
                   </p>
                 </div>
                 <div className="mt-6 pt-6 border-t border-teal-100 flex items-center gap-4">

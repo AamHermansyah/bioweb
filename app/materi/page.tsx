@@ -23,9 +23,15 @@ import Materi16 from './_components/materi-16';
 import Materi17 from './_components/materi-17';
 import Materi18 from './_components/materi-18';
 import Link from 'next/link';
+import Video1 from './_components/video-1';
+import Video2 from './_components/video-2';
+import Video3 from './_components/video-3';
+import Video4 from './_components/video-4';
+import Video5 from './_components/video-5';
 
 const materiList = [
   { id: 'materi-1', title: 'Pengantar Sistem Gerak' },
+  { id: 'video-1', title: 'Video Pengantar' },
   { type: 'separator', title: 'Bab 1 - Rangka' },
   { id: 'materi-2', title: 'Pengantar' },
   { type: 'separator', title: 'Jenis Rangka' },
@@ -34,14 +40,18 @@ const materiList = [
   { type: 'separator', title: 'Tulang Penyusun Rangka' },
   { id: 'materi-5', title: 'Bentuk Tulang' },
   { id: 'materi-6', title: 'Jenis Tulang' },
+  { id: 'video-3', title: 'Video Jenis Tulang' },
   { type: 'separator', title: 'Pembahasan lain' },
   { id: 'materi-7', title: 'Pembentukan Tulang' },
+  { id: 'video-4', title: 'Video Osifikasi' },
   { id: 'materi-8', title: 'Hubungan Antartulang' },
   { id: 'materi-9', title: 'Macam Macam Gerak' },
   { type: 'separator', title: 'Bab 2 - Otot' },
   { id: 'materi-10', title: 'Pengantar' },
   { id: 'materi-11', title: 'Jenis Jenis Otot' },
+  { id: 'video-5', title: 'Video Jenis Otot' },
   { id: 'materi-12', title: 'Mekanisme Gerak Otot' },
+  { id: 'video-2', title: 'Video Kontraksi Otot' },
   { type: 'separator', title: 'Bab 3 - Gangguan & Kelainan Tulang' },
   { id: 'materi-13', title: 'Gangguan Mekanik' },
   { id: 'materi-14', title: 'Gangguan Fisiologis' },
@@ -61,6 +71,8 @@ const MateriPage = () => {
     switch (activeTab) {
       case 'materi-1':
         return <Materi1 />;
+      case 'video-1':
+        return <Video1 />;
       case 'materi-2':
         return <Materi2 />;
       case 'materi-3':
@@ -69,10 +81,14 @@ const MateriPage = () => {
         return <Materi4 />;
       case 'materi-5':
         return <Materi5 />;
+      case 'video-3':
+        return <Video3 />;
       case 'materi-6':
         return <Materi6 />;
       case 'materi-7':
         return <Materi7 />;
+      case 'video-4':
+        return <Video4 />;
       case 'materi-8':
         return <Materi8 />;
       case 'materi-9':
@@ -81,8 +97,12 @@ const MateriPage = () => {
         return <Materi10 />;
       case 'materi-11':
         return <Materi11 />;
+      case 'video-5':
+        return <Video5 />;
       case 'materi-12':
         return <Materi12 />;
+      case 'video-2':
+        return <Video2 />;
       case 'materi-13':
         return <Materi13 />;
       case 'materi-14':
