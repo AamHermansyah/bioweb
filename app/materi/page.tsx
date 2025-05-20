@@ -28,6 +28,7 @@ import Video2 from './_components/video-2';
 import Video3 from './_components/video-3';
 import Video4 from './_components/video-4';
 import Video5 from './_components/video-5';
+import Video6 from './_components/video-6';
 
 const materiList = [
   { id: 'materi-1', title: 'Pengantar Sistem Gerak' },
@@ -45,6 +46,7 @@ const materiList = [
   { id: 'materi-7', title: 'Pembentukan Tulang' },
   { id: 'video-4', title: 'Video Osifikasi' },
   { id: 'materi-8', title: 'Hubungan Antartulang' },
+  { id: 'video-6', title: 'Video Jenis Sendi' },
   { id: 'materi-9', title: 'Macam Macam Gerak' },
   { type: 'separator', title: 'Bab 2 - Otot' },
   { id: 'materi-10', title: 'Pengantar' },
@@ -91,6 +93,8 @@ const MateriPage = () => {
         return <Video4 />;
       case 'materi-8':
         return <Materi8 />;
+      case 'video-6':
+        return <Video6 />;
       case 'materi-9':
         return <Materi9 />;
       case 'materi-10':
