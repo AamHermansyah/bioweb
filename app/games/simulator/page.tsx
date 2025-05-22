@@ -1,9 +1,10 @@
 'use client'
 
 import React, { useState, useEffect, useRef } from 'react';
-import { PlayIcon, RefreshCwIcon, ChevronRightIcon, XIcon, CheckIcon, InfoIcon, TrophyIcon, ClockIcon } from 'lucide-react';
+import { PlayIcon, RefreshCwIcon, XIcon, CheckIcon, InfoIcon, TrophyIcon, ClockIcon } from 'lucide-react';
 import { Answer, DifficultyLevel, GameState, MovementType, MuscleGroup } from '@/types/simulator';
 import { movementScenarios } from '@/constants/simulator';
+import Image from 'next/image';
 
 const MovementSimulatorGame: React.FC = () => {
   // Movement types for selection
@@ -105,11 +106,6 @@ const MovementSimulatorGame: React.FC = () => {
         feedbackType: 'incorrect'
       };
     }
-
-    // Show timeout feedback, then move to next scenario
-    setTimeout(() => {
-      nextScenario();
-    }, 2000);
 
     return {
       ...prevState,
@@ -245,11 +241,6 @@ const MovementSimulatorGame: React.FC = () => {
     if (timerRef.current) {
       clearInterval(timerRef.current);
     }
-
-    // Automatically move to next scenario after feedback
-    setTimeout(() => {
-      nextScenario();
-    }, 3000);
   };
 
   // Reset game
@@ -505,7 +496,13 @@ const MovementSimulatorGame: React.FC = () => {
                   <p className="text-gray-600 mb-4">{currentScenario.description}</p>
 
                   {/* This would typically be an actual image, using a placeholder for now */}
-                  <div className="aspect-square bg-gray-200 rounded-lg mb-4 flex items-center justify-center">
+                  <div className="relative aspect-square bg-gray-200 rounded-lg mb-4 flex items-center justify-center">
+                    <Image
+                      src={currentScenario.imageURL}
+                      alt=""
+                      fill
+                      className="object-contain"
+                    />
                     <div className="text-center text-gray-500">
                       <p className="font-medium">[Ilustrasi {currentScenario.title}]</p>
                       <p className="text-sm">Pada sendi {currentScenario.joint === 'spine' ? 'tulang belakang' : currentScenario.joint}</p>
@@ -527,45 +524,52 @@ const MovementSimulatorGame: React.FC = () => {
                 <div className="bg-white p-4 rounded-lg border border-gray-200">
                   {/* Feedback Display */}
                   {gameState.showFeedback ? (
-                    <div className={`p-4 rounded-lg mb-4 ${gameState.feedbackType === 'correct'
-                      ? 'bg-green-50 border border-green-200'
-                      : 'bg-red-50 border border-red-200'
-                      }`}>
-                      <div className="flex items-start">
-                        <div className={`p-2 rounded-full ${gameState.feedbackType === 'correct'
-                          ? 'bg-green-100 text-green-700'
-                          : 'bg-red-100 text-red-700'
-                          }`}>
-                          {gameState.feedbackType === 'correct'
-                            ? <CheckIcon className="w-5 h-5" />
-                            : <XIcon className="w-5 h-5" />}
-                        </div>
-                        <div className="ml-3">
-                          <h3 className={`font-semibold ${gameState.feedbackType === 'correct'
-                            ? 'text-green-700'
-                            : 'text-red-700'
+                    <div>
+                      <div className={`p-4 rounded-lg mb-4 ${gameState.feedbackType === 'correct'
+                        ? 'bg-green-50 border border-green-200'
+                        : 'bg-red-50 border border-red-200'
+                        }`}>
+                        <div className="flex items-start">
+                          <div className={`p-2 rounded-full ${gameState.feedbackType === 'correct'
+                            ? 'bg-green-100 text-green-700'
+                            : 'bg-red-100 text-red-700'
                             }`}>
                             {gameState.feedbackType === 'correct'
-                              ? 'Jawaban Benar!'
-                              : 'Jawaban Salah'}
-                          </h3>
-                          <div className="mt-2">
-                            <p className="font-medium text-gray-700">Jawaban yang benar:</p>
-                            <p className="text-gray-700">
-                              Jenis gerakan: <span className="font-medium">{translateMovementType(currentScenario.movementType)}</span>
-                            </p>
-                            <p className="text-gray-700">
-                              Otot utama:
-                              <span className="font-medium">
-                                {currentScenario.primaryMuscles.map(m => translateMuscleGroup(m)).join(', ')}
-                              </span>
-                            </p>
+                              ? <CheckIcon className="w-5 h-5" />
+                              : <XIcon className="w-5 h-5" />}
+                          </div>
+                          <div className="ml-3">
+                            <h3 className={`font-semibold ${gameState.feedbackType === 'correct'
+                              ? 'text-green-700'
+                              : 'text-red-700'
+                              }`}>
+                              {gameState.feedbackType === 'correct'
+                                ? 'Jawaban Benar!'
+                                : 'Jawaban Salah'}
+                            </h3>
+                            <div className="mt-2">
+                              <p className="font-medium text-gray-700">Jawaban yang benar:</p>
+                              <p className="text-gray-700">
+                                Jenis gerakan: <span className="font-medium">{translateMovementType(currentScenario.movementType)}</span>
+                              </p>
+                              <p className="text-gray-700">
+                                Otot utama:
+                                <span className="font-medium">
+                                  {currentScenario.primaryMuscles.map(m => translateMuscleGroup(m)).join(', ')}
+                                </span>
+                              </p>
+                            </div>
                           </div>
                         </div>
                       </div>
-
-                      <div className="text-center mt-4">
-                        <p className="text-sm text-gray-500">Melanjutkan ke gerakan berikutnya...</p>
+                      <div className="mt-4">
+                        <button
+                          onClick={() => nextScenario()}
+                          className="w-full bg-emerald-500 text-white py-2 px-4 rounded-md hover:bg-emerald-600 transition"
+                        >
+                          {gameState.currentScenarioIndex + 1 === filteredScenarios.length
+                            ? 'Lihat Skor' : 'Skenario Selanjutnya'}
+                        </button>
                       </div>
                     </div>
                   ) : (
@@ -679,17 +683,6 @@ const MovementSimulatorGame: React.FC = () => {
                 >
                   <RefreshCwIcon className="w-5 h-5 mr-2" />
                   Main Lagi
-                </button>
-                <button
-                  onClick={() => changeLevel(
-                    gameState.level === 'easy' ? 'medium' :
-                      gameState.level === 'medium' ? 'hard' : 'easy'
-                  )}
-                  className="px-6 py-3 bg-white border border-teal-600 text-teal-700 hover:bg-teal-50 font-medium rounded-lg inline-flex items-center transition-colors"
-                >
-                  <ChevronRightIcon className="w-5 h-5 mr-2" />
-                  {gameState.level === 'easy' ? 'Coba Level Sedang' :
-                    gameState.level === 'medium' ? 'Coba Level Sulit' : 'Coba Level Mudah'}
                 </button>
               </div>
             </div>

@@ -17,9 +17,6 @@ import { BonePart, Card, GameLevel, GameStatus } from '@/types/cari-tulang';
 import { boneParts } from '@/constants/cari-tulang';
 
 const BoneMatcherGame: React.FC = () => {
-  // Data tulang manusia
-
-
   // Level permainan
   const gameLevels: GameLevel[] = [
     {
@@ -540,7 +537,9 @@ const BoneMatcherGame: React.FC = () => {
                         {/* Front of card (when flipped) */}
                         <div className={`absolute w-full h-full bg-teal-200 p-2 flex items-center justify-center ${card.isFlipped || card.isMatched ? '' : 'hidden'}`}>
                           {card.type === 'name' ? (
-                            <p className="text-center text-sm font-medium text-teal-800">{card.content}</p>
+                            <p className="text-center text-sm font-medium text-teal-800 -rotate-y-180">
+                              {card.content}
+                            </p>
                           ) : (
                             <div className="w-full h-full flex items-center justify-center">
                               <img src={card.content} alt="Gambar tulang" className="max-w-full max-h-full object-contain" />
@@ -600,52 +599,54 @@ const BoneMatcherGame: React.FC = () => {
       {/* Tutorial Modal */}
       {showTutorial && (
         <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
-          <div className="bg-white rounded-xl shadow-xl max-w-lg w-full p-6 animate-pop-in">
-            <div className="flex justify-between items-center mb-4">
-              <h3 className="text-xl font-bold text-teal-700 flex items-center">
-                <HelpCircle className="w-5 h-5 mr-2" />
-                Cara Bermain
-              </h3>
-              <button
-                onClick={() => setShowTutorial(false)}
-                className="p-1 hover:bg-gray-100 rounded-full transition-colors"
-              >
-                <X className="w-5 h-5 text-gray-500" />
-              </button>
-            </div>
-
-            <div className="space-y-4">
-              <p className="text-gray-700">
-                Bone Matcher adalah permainan mencocokkan kartu untuk menguji pengetahuanmu tentang tulang-tulang pada tubuh manusia.
-              </p>
-
-              <div className="bg-teal-50 p-4 rounded-lg">
-                <h4 className="font-semibold text-teal-700 mb-2">Aturan Permainan:</h4>
-                <ul className="space-y-2 text-gray-700 list-disc pl-5">
-                  <li>Kartu yang tersedia terdiri dari pasangan nama tulang dan gambar tulang.</li>
-                  <li>Klik pada kartu untuk membaliknya dan temukan pasangannya.</li>
-                  <li>Setiap kali kamu menemukan pasangan kartu yang cocok, kamu akan mendapatkan poin.</li>
-                  <li>Semakin banyak pasangan yang kamu temukan berturut-turut tanpa kesalahan, semakin banyak poin yang didapat.</li>
-                  <li>Permainan selesai ketika semua pasangan ditemukan atau waktu habis.</li>
-                </ul>
+          <div className="relative">
+            <button
+              onClick={() => setShowTutorial(false)}
+              className="absolute top-2 right-3 p-1 hover:bg-gray-100 rounded-full transition-colors z-10"
+            >
+              <X className="w-5 h-5 text-gray-500" />
+            </button>
+            <div className="bg-white rounded-xl shadow-xl max-w-lg w-full p-6 animate-pop-in max-h-[90vh] overflow-y-auto">
+              <div className="flex justify-between items-center mb-4">
+                <h3 className="text-xl font-bold text-teal-700 flex items-center">
+                  <HelpCircle className="w-5 h-5 mr-2" />
+                  Cara Bermain
+                </h3>
               </div>
 
-              <div className="bg-emerald-50 p-4 rounded-lg">
-                <h4 className="font-semibold text-emerald-700 mb-2">Tips:</h4>
-                <ul className="space-y-2 text-gray-700 list-disc pl-5">
-                  <li>Cobalah untuk mengingat posisi kartu yang sudah dibuka sebelumnya.</li>
-                  <li>Perhatikan waktu yang tersisa agar dapat menyelesaikan permainan tepat waktu.</li>
-                  <li>Mulailah dari level mudah untuk membiasakan diri dengan permainan ini.</li>
-                </ul>
-              </div>
+              <div className="space-y-4">
+                <p className="text-gray-700">
+                  Bone Matcher adalah permainan mencocokkan kartu untuk menguji pengetahuanmu tentang tulang-tulang pada tubuh manusia.
+                </p>
 
-              <div className="flex justify-end mt-2">
-                <button
-                  onClick={() => setShowTutorial(false)}
-                  className="px-6 py-2 bg-teal-600 hover:bg-teal-700 text-white rounded-lg transition-colors"
-                >
-                  Saya Mengerti
-                </button>
+                <div className="bg-teal-50 p-4 rounded-lg">
+                  <h4 className="font-semibold text-teal-700 mb-2">Aturan Permainan:</h4>
+                  <ul className="space-y-2 text-gray-700 list-disc pl-5">
+                    <li>Kartu yang tersedia terdiri dari pasangan nama tulang dan gambar tulang.</li>
+                    <li>Klik pada kartu untuk membaliknya dan temukan pasangannya.</li>
+                    <li>Setiap kali kamu menemukan pasangan kartu yang cocok, kamu akan mendapatkan poin.</li>
+                    <li>Semakin banyak pasangan yang kamu temukan berturut-turut tanpa kesalahan, semakin banyak poin yang didapat.</li>
+                    <li>Permainan selesai ketika semua pasangan ditemukan atau waktu habis.</li>
+                  </ul>
+                </div>
+
+                <div className="bg-emerald-50 p-4 rounded-lg">
+                  <h4 className="font-semibold text-emerald-700 mb-2">Tips:</h4>
+                  <ul className="space-y-2 text-gray-700 list-disc pl-5">
+                    <li>Cobalah untuk mengingat posisi kartu yang sudah dibuka sebelumnya.</li>
+                    <li>Perhatikan waktu yang tersisa agar dapat menyelesaikan permainan tepat waktu.</li>
+                    <li>Mulailah dari level mudah untuk membiasakan diri dengan permainan ini.</li>
+                  </ul>
+                </div>
+
+                <div className="flex justify-end mt-2">
+                  <button
+                    onClick={() => setShowTutorial(false)}
+                    className="px-6 py-2 bg-teal-600 hover:bg-teal-700 text-white rounded-lg transition-colors"
+                  >
+                    Saya Mengerti
+                  </button>
+                </div>
               </div>
             </div>
           </div>

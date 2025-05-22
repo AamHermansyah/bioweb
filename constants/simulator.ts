@@ -10,7 +10,7 @@ export const movementScenarios: MovementScenario[] = [
     primaryMuscles: ["deltoid"],
     antagonistMuscles: ["pectoralis"],
     difficulty: "easy",
-    imageURL: "/images/shoulder-abduction.png",
+    imageURL: "/games/simulator/shoulder-abduction.png",
     hint: "Gerakan menjauhi sumbu tengah tubuh"
   },
   {
@@ -22,7 +22,7 @@ export const movementScenarios: MovementScenario[] = [
     primaryMuscles: ["biceps"],
     antagonistMuscles: ["triceps"],
     difficulty: "easy",
-    imageURL: "/images/elbow-flexion.png",
+    imageURL: "/games/simulator/elbow-flexion.png",
     hint: "Gerakan mengurangi sudut sendi"
   },
   {
@@ -34,7 +34,7 @@ export const movementScenarios: MovementScenario[] = [
     primaryMuscles: ["quadriceps"],
     antagonistMuscles: ["gluteus", "hamstrings"],
     difficulty: "medium",
-    imageURL: "/images/hip-flexion.png",
+    imageURL: "/games/simulator/hip-flexion.png",
     hint: "Gerakan mengurangi sudut sendi"
   },
   {
@@ -46,7 +46,7 @@ export const movementScenarios: MovementScenario[] = [
     primaryMuscles: ["trapezius"],
     antagonistMuscles: [],
     difficulty: "medium",
-    imageURL: "/images/neck-rotation.png",
+    imageURL: "/games/simulator/neck-rotation.png",
     hint: "Gerakan memutar di sekitar sumbu"
   },
   {
@@ -58,7 +58,7 @@ export const movementScenarios: MovementScenario[] = [
     primaryMuscles: ["pectoralis"],
     antagonistMuscles: ["deltoid"],
     difficulty: "medium",
-    imageURL: "/images/shoulder-adduction.png",
+    imageURL: "/games/simulator/shoulder-adduction.png",
     hint: "Gerakan mendekati sumbu tengah tubuh"
   },
   {
@@ -70,7 +70,7 @@ export const movementScenarios: MovementScenario[] = [
     primaryMuscles: ["quadriceps"],
     antagonistMuscles: ["hamstrings"],
     difficulty: "easy",
-    imageURL: "/images/knee-extension.png",
+    imageURL: "/games/simulator/knee-extension.png",
     hint: "Gerakan menambah sudut sendi"
   },
   {
@@ -82,7 +82,7 @@ export const movementScenarios: MovementScenario[] = [
     primaryMuscles: ["triceps"],
     antagonistMuscles: ["biceps"],
     difficulty: "easy",
-    imageURL: "/images/elbow-extension.png",
+    imageURL: "/games/simulator/elbow-extension.png",
     hint: "Gerakan menambah sudut sendi"
   },
   {
@@ -94,7 +94,7 @@ export const movementScenarios: MovementScenario[] = [
     primaryMuscles: ["gluteus"],
     antagonistMuscles: ["abdominals"],
     difficulty: "hard",
-    imageURL: "/images/hip-abduction.png",
+    imageURL: "/games/simulator/hip-abduction.png",
     hint: "Gerakan menjauhi sumbu tengah tubuh"
   },
   {
@@ -106,7 +106,7 @@ export const movementScenarios: MovementScenario[] = [
     primaryMuscles: ["abdominals"],
     antagonistMuscles: ["trapezius"],
     difficulty: "medium",
-    imageURL: "/images/trunk-flexion.png",
+    imageURL: "/games/simulator/trunk-flexion.png",
     hint: "Gerakan mengurangi sudut sendi"
   },
   {
@@ -118,7 +118,7 @@ export const movementScenarios: MovementScenario[] = [
     primaryMuscles: ["gastrocnemius"],
     antagonistMuscles: [],
     difficulty: "hard",
-    imageURL: "/images/ankle-flexion.png",
+    imageURL: "/games/simulator/ankle-flexion.png",
     hint: "Gerakan mengurangi sudut sendi"
   }
 ];

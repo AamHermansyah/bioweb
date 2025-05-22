@@ -1,7 +1,7 @@
 'use client'
 
 import React from 'react';
-import { Clock, ArrowRight, Star } from 'lucide-react';
+import { Clock, ArrowRight, Star, Trophy } from 'lucide-react';
 import Link from 'next/link';
 import { games } from '@/constants/games';
 
@@ -21,6 +21,10 @@ const GameHomePage: React.FC = () => {
 
               {/* Feature Highlights */}
               <div className="flex flex-wrap justify-center lg:justify-start gap-3 pt-6">
+                <div className="flex items-center gap-2 px-3 py-1.5 bg-white border rounded-full shadow-sm">
+                  <Trophy className="w-4 h-4 text-blue-500" />
+                  <span className="text-sm font-medium text-gray-800">Skor Tertinggi</span>
+                </div>
                 <div className="flex items-center gap-2 px-3 py-1.5 bg-white border rounded-full shadow-sm">
                   <Clock className="w-4 h-4 text-blue-500" />
                   <span className="text-sm font-medium text-gray-800">Tantangan Waktu</span>
