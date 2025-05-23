@@ -13,9 +13,9 @@ function Features() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {[
-            { title: 'Materi Lengkap', desc: 'Pelajari struktur tulang, otot, dan mekanisme gerak manusia secara detail' },
-            { title: 'Kuis Interaktif', desc: 'Uji pemahaman dengan kuis pilihan ganda yang memberikan feedback langsung' },
-            { title: 'Game Edukatif', desc: 'Bermain sambil belajar dengan game menyusun tulang dan mencocokkan fungsi otot' },
+            { title: 'Materi Lengkap', desc: 'Pelajari jenis rangka dan otot, tulang penyusun rangka, pembentukan tulang, gangguan dan kelainan secara detail.' },
+            { title: 'Kuis Interaktif', desc: 'Uji pemahaman dengan kuis yang menarik dalam bentuk pilihan ganda yang memberikan feedback langsung.' },
+            { title: 'Game Edukatif', desc: 'Bermain sambil belajar dengan game mencari pasangan tulang, simulator gerakan, dan mencocokkan fungsi otot.' },
           ].map((feature, index) => (
             <div key={index} className="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow border border-green-100">
               <div className="w-12 h-12 bg-gradient-to-br from-teal-500 to-emerald-400 rounded-lg flex items-center justify-center mb-4 text-white">

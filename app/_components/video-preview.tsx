@@ -11,8 +11,8 @@ function VideoPreview() {
       <div className="container mx-auto max-w-6xl px-4">
         <div className="text-center mb-12">
           <h2 className="text-3xl font-bold mb-4">Visualisasi Interaktif</h2>
-          <p className="text-gray-600 max-w-2xl mx-auto">
-            Pelajari sistem gerak manusia melalui animasi dan visualisasi yang memudahkan pemahaman konsep biologis kompleks.
+          <p className="text-gray-600 max-w-3xl mx-auto">
+            Mempelajari sistem gerak manusia melalui animasi dan visualisasi untuk mempermudah dalam memahami konsep tersebut.
           </p>
         </div>
 

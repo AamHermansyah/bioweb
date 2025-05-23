@@ -25,7 +25,7 @@ export const boneParts: BonePart[] = [
   {
     id: 4,
     name: "Tulang Rusuk (Costa)",
-    description: "Tulang rusuk membentuk rongga dada dan melindungi organ vital seperti jantung dan paru-paru. Tulang-tulang ini tersusun secara simetris di kanan dan kiri serta melekat pada tulang dada di bagian depan dan tulang belakang di bagian belakang.",
+    description: "Tulang rusuk termasuk kedalam jenis rangka aksial. Tulang rusuk dikelompokkan menjadi tiga macam yaitu tulang rusuk sejati (costa vera), tulang rusuk palsu (costa spuria), dan tulang rusuk melayang (costa fluktuantes).",
     image: "/games/cari-tulang/tulang-rusuk.png",
     position: "Dada"
   },
@@ -67,7 +67,7 @@ export const boneParts: BonePart[] = [
   {
     id: 10,
     name: "Tulang Paha",
-    description: "Tulang paha atau femur adalah tulang terpanjang dan terkuat dalam tubuh manusia. Tulang ini menghubungkan panggul dengan lutut dan berperan penting dalam menopang berat badan serta memungkinkan gerakan seperti berjalan dan berlari.",
+    description: "Tulang paha termasuk kedalam jenis rangka apendikuler. Tulang paha akan tersambung dengan dua jenis tulang yakni tulang betis (fibula) dan tulang kering (tibia). Persambungan antar tulang ini dilakukan oleh suatu tulang yang disebut tulang tempurung lutut (patela).",
     image: "/games/cari-tulang/tulang-paha.png",
     position: "Paha"
   },

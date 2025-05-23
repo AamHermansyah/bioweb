@@ -2,15 +2,14 @@ import { BookOpen } from 'lucide-react'
 import React from 'react'
 
 const learningGoals = [
-  'Peserta didik mampu menjelaskan organ-organ sistem gerak pada manusia beserta fungsinya melalui kajian literatur dengan tepat.',
-  'Peserta didik mampu menjelaskan proses pembentukan tulang (osifikasi) melalui kajian literatur dengan tepat.',
-  'Peserta didik mampu menjelaskan hubungan antar tulang (persendian) melalui kajian literatur dengan tepat.',
-  'Peserta didik mampu menjelaskan mecam-macam gerak pada manusia melalui kajian literatur.',
-  'Peserta didik mampu menjelaskan struktur penyusun otot pada sistem gerak manusia melalui kajian literatur.',
-  'Peserta didik mampu menjelaskan macam-macam otot sistem gerak pada manusia beserta mekanisme Gerak otot melalui kajian literatur dengan tepat.',
-  'Peserta didik mampu menjelaskan gangguan/kelainan pada sistem gerak manusia melalui kajian literatur dengan tepat.'
+  'Peserta didik mampu menjelaskan jenis-jenis rangka pada manusia melalui gambar, video, dan kajian literatur dengan tepat.',
+  'Peserta didik mampu menjelaskan proses pembentukan tulang (osifikasi) melalui video dan kajian literatur dengan tepat.',
+  'Peserta didik mampu menjelaskan hubungan antar tulang (persendian) melalui gambar, video, dan kajian literatur dengan tepat.',
+  'Peserta didik mampu menjelaskan macam-macam gerak pada manusia melalui gambar dan kajian literatur dengan tepat.',
+  'Peserta didik mampu menjelaskan jenis-jenis otot sistem gerak pada manusia melalui gambar, video, dan kajian literatur dengan tepat.',
+  'Peserta didik mampu menjelaskan mekanisme gerak otot pada manusia melalui gambar, video, dan kajian literatur dengan tepat.',
+  'Peserta didik mampu menjelaskan gangguan/kelainan pada sistem gerak manusia melalui gambar dan kajian literatur dengan tepat.'
 ];
-
 
 function LearningObjectives() {
   return (
@@ -26,7 +25,7 @@ function LearningObjectives() {
                 <h2 className="text-2xl font-bold ml-4">Capaian Pembelajaran</h2>
               </div>
               <p className="text-gray-600 leading-relaxed mt-3">
-                Pada Fase F, peserta didik mampu memahami keterkaitan struktur organ pada sistem organ dengan fungsinya dalam merespons stimulus internal dan eksternal.
+                Pada Fase F, Peserta didik mampu memahami keterkaitan struktur organ pada sistem organ dengan fungsinya dalam merespons stimulus internal dan eksternal.
               </p>
             </div>
           </div>

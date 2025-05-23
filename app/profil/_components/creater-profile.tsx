@@ -1,5 +1,6 @@
 import { MessageSquare, User } from 'lucide-react'
 import Image from 'next/image'
+import Link from 'next/link'
 import React from 'react'
 
 function CreatorProfile() {
@@ -78,10 +79,12 @@ function CreatorProfile() {
                   </p>
                 </div>
                 <div className="mt-6 pt-6 border-t border-teal-100 flex items-center gap-4">
-                  <MessageSquare className="w-5 h-5 text-teal-600" />
-                  <span className="flex-1 block text-gray-600">
-                    Hubungi untuk kerjasama atau pertanyaan seputar media pembelajaran
-                  </span>
+                  <Link href="https://wa.me/6281284381915" target="_blank">
+                    <button className="px-4 py-3 flex items-center gap-2 bg-green-500 text-white rounded-md hover:bg-green-600 transition cursor-pointer">
+                      <MessageSquare className="w-5 h-5" />
+                      Hubungi Saya
+                    </button>
+                  </Link>
                 </div>
               </div>
             </div>

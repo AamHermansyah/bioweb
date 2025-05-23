@@ -9,14 +9,14 @@ const GameHomePage: React.FC = () => {
   return (
     <div className="min-h-screen bg-gradient-to-b from-green-50 to-teal-50 text-gray-800 font-sans">
       <div className="relative bg-gradient-to-b from-white to-teal-50 overflow-hidden">
-        <div className="bg-white pt-20">
+        <div className="bg-white pt-6 sm:pt-20">
           <div className="container mx-auto max-w-7xl px-4 py-20 lg:py-28 flex flex-col-reverse lg:flex-row items-center gap-12">
             <div className="text-center lg:text-left flex-1 space-y-6">
               <h1 className="text-4xl md:text-5xl font-extrabold text-gray-900 leading-tight">
                 Belajar Sistem Gerak Jadi Lebih Seru 🎮
               </h1>
               <p className="text-lg md:text-xl text-gray-600 max-w-xl">
-                Jelajahi dunia anatomi manusia dengan cara yang menyenangkan melalui game edukatif interaktif kami. Tantang dirimu, kumpulkan skor, dan jadilah ahli biologi mini!
+                Jelajahi dunia sistem gerak pada manusia dengan cara yang menyenangkan melalui game interaktif kami. Tantang dirimu, kumpulkan skor, dan taklukan semua level!
               </p>
 
               {/* Feature Highlights */}
@@ -39,7 +39,7 @@ const GameHomePage: React.FC = () => {
             {/* Kanan: Ilustrasi/Gambar */}
             <div className="flex-1">
               <img
-                src="https://placehold.co/500x400.png?text=Ilustrasi+Game"
+                src="/games/match-bones.png"
                 alt="Ilustrasi Game Edukasi"
                 className="w-full max-w-md mx-auto"
               />
@@ -171,12 +171,12 @@ const GameHomePage: React.FC = () => {
             </Link>
             <Link href="/games/pasangkan-otot">
               <div className="px-6 py-3 bg-emerald-600 hover:bg-emerald-700 text-white font-medium rounded-lg transition-colors">
-                Mencocokkan Otot
+                Mencocokkan Fungsi Otot
               </div>
             </Link>
             <Link href="/games/cari-tulang">
               <div className="px-6 py-3 bg-amber-600 hover:bg-amber-700 text-white font-medium rounded-lg transition-colors">
-                Cocokan Tulang
+                Cari Pasangan Tulang
               </div>
             </Link>
           </div>

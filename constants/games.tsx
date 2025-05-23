@@ -16,7 +16,7 @@ export const games = [
   },
   {
     id: 'muscle-matching',
-    title: 'Mencocokkan Otot',
+    title: 'Mencocokkan Fungsi Otot',
     description: 'Cocokkan setiap jenis otot dengan fungsinya yang tepat dalam sistem gerak manusia.',
     icon: <Dumbbell className="w-10 h-10 text-emerald-200" />,
     difficulty: 'Mudah',
@@ -29,7 +29,7 @@ export const games = [
   },
   {
     id: 'bone-flip-match',
-    title: 'Cocokkan Tulang',
+    title: 'Cari Pasangan Tulang',
     description: 'Balik dan cocokkan pasangan gambar tulang yang sesuai. Temukan semua pasangan dan pelajari fungsi tiap tulang!',
     icon: <Bone className="w-10 h-10 text-amber-200" />,
     difficulty: 'Sedang',

@@ -37,23 +37,44 @@ function Materi1() {
           <Info className="w-5 h-5 mr-2 text-teal-700" />
           Kata Kunci
         </h4>
-        <ul className="space-y-3">
-          {[
-            'Sistem Gerak',
-            'Tulang Rangka',
-            'Otot',
-            'Artikulasi (Persendian)',
-          ].map((item, index) => (
-            <li key={index} className="flex items-start">
-              <div className="w-6 h-6 rounded-full bg-teal-100 flex items-center justify-center mt-0.5 flex-shrink-0">
-                <span className="text-teal-700 font-medium text-sm">{index + 1}</span>
-              </div>
-              <div className="ml-3">
-                <p className="font-medium">{item}</p>
-              </div>
-            </li>
-          ))}
-        </ul>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <ul className="space-y-3">
+            {[
+              'Sistem Gerak',
+              'Tulang Rangka',
+              'Otot',
+              'Artikulasi (Persendian)',
+              'Skoliosis',
+            ].map((item, index) => (
+              <li key={index} className="flex items-start">
+                <div className="w-6 h-6 rounded-full bg-teal-100 flex items-center justify-center mt-0.5 flex-shrink-0">
+                  <span className="text-teal-700 font-medium text-sm">{index + 1}</span>
+                </div>
+                <div className="ml-3">
+                  <p className="font-medium">{item}</p>
+                </div>
+              </li>
+            ))}
+          </ul>
+          <ul className="space-y-3">
+            {[
+              'Hipertropi',
+              'Atropi',
+              'Distropi Otot',
+              'Lordosis',
+              'Kifosis',
+            ].map((item, index) => (
+              <li key={index + 5} className="flex items-start">
+                <div className="w-6 h-6 rounded-full bg-teal-100 flex items-center justify-center mt-0.5 flex-shrink-0">
+                  <span className="text-teal-700 font-medium text-sm">{index + 6}</span>
+                </div>
+                <div className="ml-3">
+                  <p className="font-medium">{item}</p>
+                </div>
+              </li>
+            ))}
+          </ul>
+        </div>
       </div>
     </div>
   )

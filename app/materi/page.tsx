@@ -199,16 +199,6 @@ const MateriPage = () => {
                     );
                   })}
                 </nav>
-
-                <div className="mt-8 pt-6 border-t border-gray-100">
-                  <div className="bg-green-50 rounded-lg p-4">
-                    <h4 className="font-medium text-green-800 mb-2">Progres Belajar</h4>
-                    <div className="w-full bg-white rounded-full h-2.5 mb-2">
-                      <div className="bg-green-600 h-2.5 rounded-full w-1/4"></div>
-                    </div>
-                    <p className="text-sm text-green-700">25% selesai</p>
-                  </div>
-                </div>
               </div>
             </div>
 
